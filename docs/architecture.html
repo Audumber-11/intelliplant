@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IntelliPlant - Architecture Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; padding: 40px; min-height: 100vh; }
+  h1 { text-align: center; font-size: 32px; margin-bottom: 8px; color: #f59e0b; }
+  .subtitle { text-align: center; color: #94a3b8; margin-bottom: 40px; font-size: 14px; }
+  .arch { max-width: 1100px; margin: 0 auto; }
+  .layer { margin-bottom: 24px; }
+  .layer-label { color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; padding-left: 4px; }
+  .boxes { display: flex; gap: 12px; flex-wrap: wrap; }
+  .box { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 16px; flex: 1; min-width: 160px; text-align: center; }
+  .box h3 { font-size: 13px; margin-bottom: 4px; }
+  .box p { font-size: 11px; color: #94a3b8; }
+  .box.frontend { border-color: #3b82f6; }
+  .box.frontend h3 { color: #3b82f6; }
+  .box.api { border-color: #f59e0b; }
+  .box.api h3 { color: #f59e0b; }
+  .box.agent { border-color: #8b5cf6; }
+  .box.agent h3 { color: #8b5cf6; }
+  .box.data { border-color: #22c55e; }
+  .box.data h3 { color: #22c55e; }
+  .box.infra { border-color: #ef4444; }
+  .box.infra h3 { color: #ef4444; }
+  .arrow { text-align: center; color: #475569; font-size: 20px; margin: 4px 0; }
+  .highlight { background: rgba(245,158,11,0.1); border-color: #f59e0b; }
+  .stats { display: flex; gap: 12px; margin-top: 32px; justify-content: center; }
+  .stat { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 16px 24px; text-align: center; }
+  .stat .num { font-size: 28px; font-weight: 700; color: #f59e0b; }
+  .stat .label { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+</style>
+</head>
+<body>
+<h1>IntelliPlant Architecture</h1>
+<p class="subtitle">AI-Powered Industrial Safety Intelligence for Zero-Harm Operations</p>
+
+<div class="arch">
+  <div class="layer">
+    <div class="layer-label">Presentation Layer</div>
+    <div class="boxes">
+      <div class="box frontend"><h3>React Dashboard</h3><p>Real-time KPIs, risk charts, incident tables</p></div>
+      <div class="box frontend"><h3>Heatmap View</h3><p>Canvas-rendered IDW risk overlay on plant layout</p></div>
+      <div class="box frontend"><h3>WebSocket Client</h3><p>Live sensor feeds, risk event streaming</p></div>
+    </div>
+  </div>
+
+  <div class="arrow">▼ HTTP / WebSocket ▼</div>
+
+  <div class="layer">
+    <div class="layer-label">API Layer (FastAPI)</div>
+    <div class="boxes">
+      <div class="box api"><h3>REST Endpoints</h3><p>20+ endpoints for all modules</p></div>
+      <div class="box api"><h3>WebSocket /ws/heatmap</h3><p>Real-time heatmap streaming</p></div>
+      <div class="box api highlight"><h3>Dashboard KPIs</h3><p>Aggregated safety metrics</p></div>
+    </div>
+  </div>
+
+  <div class="arrow">▼ Agent Orchestration ▼</div>
+
+  <div class="layer">
+    <div class="layer-label">Intelligence Agents</div>
+    <div class="boxes">
+      <div class="box agent"><h3>Risk Engine</h3><p>Correlation, Rules, Data Fusion, Alerts</p></div>
+      <div class="box agent"><h3>Geospatial</h3><p>IDW heatmap, zone tracking, asset locations</p></div>
+      <div class="box agent"><h3>Incident Intel</h3><p>Pattern detection, root cause, recurrence</p></div>
+      <div class="box agent"><h3>Permit Intel</h3><p>Conflict detection, risk scoring, validation</p></div>
+      <div class="box agent"><h3>Emergency</h3><p>ICS plans, escalation, muster tracking</p></div>
+      <div class="box agent"><h3>Compliance</h3><p>OISD-116/Factory Act checklists, scoring</p></div>
+    </div>
+  </div>
+
+  <div class="arrow">▼ SQLAlchemy Async ▼</div>
+
+  <div class="layer">
+    <div class="layer-label">Data Layer</div>
+    <div class="boxes">
+      <div class="box data"><h3>SQLite / PostgreSQL</h3><p>20+ tables: assets, sensors, permits, incidents, risk events, audits</p></div>
+      <div class="box data"><h3>ChromaDB</h3><p>RAG vector store for regulations & incidents</p></div>
+      <div class="box data"><h3>Redis</h3><p>Session cache, pub/sub for real-time events</p></div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">20+</div><div class="label">API Endpoints</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">AI Agents</div></div>
+    <div class="stat"><div class="num">17</div><div class="label">Plant Assets</div></div>
+    <div class="stat"><div class="num">18</div><div class="label">IoT Sensors</div></div>
+    <div class="stat"><div class="num">225</div><div class="label">Heatmap Cells</div></div>
+    <div class="stat"><div class="num">20</div><div class="label">Safety Rules</div></div>
+  </div>
+</div>
+</body>
+</html>

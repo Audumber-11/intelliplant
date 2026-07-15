@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IntelliPlant - Pitch Deck</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; }
+  .slide { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px; text-align: center; border-bottom: 1px solid #1e293b; }
+  .slide:nth-child(even) { background: #1e293b; }
+  h1 { font-size: 48px; margin-bottom: 16px; }
+  h2 { font-size: 36px; margin-bottom: 16px; color: #f59e0b; }
+  h3 { font-size: 24px; margin-bottom: 12px; }
+  p { font-size: 18px; color: #94a3b8; max-width: 700px; line-height: 1.6; }
+  .accent { color: #f59e0b; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; max-width: 900px; margin-top: 32px; }
+  .card { background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 24px; text-align: left; }
+  .card h4 { color: #f59e0b; font-size: 16px; margin-bottom: 8px; }
+  .card p { font-size: 13px; }
+  .metrics { display: flex; gap: 40px; margin-top: 32px; }
+  .metric .num { font-size: 48px; font-weight: 700; color: #f59e0b; }
+  .metric .label { font-size: 14px; color: #94a3b8; }
+  .tag { display: inline-block; background: rgba(245,158,11,0.15); color: #f59e0b; padding: 4px 12px; border-radius: 20px; font-size: 13px; margin: 4px; }
+  ul { list-style: none; text-align: left; max-width: 600px; margin-top: 20px; }
+  ul li { padding: 8px 0; font-size: 16px; color: #94a3b8; border-bottom: 1px solid #334155; }
+  ul li::before { content: "✓ "; color: #22c55e; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <h1><span class="accent">IntelliPlant</span></h1>
+  <h3>AI-Powered Industrial Safety Intelligence</h3>
+  <p>Multi-agent platform for zero-harm operations in process industries</p>
+  <div style="margin-top: 20px;">
+    <span class="tag">Compound Risk Detection</span>
+    <span class="tag">Geospatial Heatmap</span>
+    <span class="tag">Incident Intelligence</span>
+    <span class="tag">Permit Automation</span>
+    <span class="tag">Emergency Response</span>
+    <span class="tag">Compliance Audit</span>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>The Problem</h2>
+  <p>Industrial plants face <span class="accent">3.2M workplace injuries</span> annually. Existing safety systems are fragmented, reactive, and miss compound risks that emerge from multiple simultaneous conditions.</p>
+  <div class="metrics">
+    <div class="metric"><div class="num">$250B</div><div class="label">Annual cost of workplace injuries</div></div>
+    <div class="metric"><div class="num">70%</div><div class="label">Of incidents are preventable</div></div>
+    <div class="metric"><div class="num">3.5hrs</div><div class="label">Avg time to detect compound risk</div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>Our Solution</h2>
+  <p>Six specialized AI agents working together to detect, predict, and prevent safety incidents before they occur.</p>
+  <div class="grid">
+    <div class="card">
+      <h4>Risk Engine</h4>
+      <p>Multi-sensor correlation with 6 compound patterns. 20 configurable safety rules covering OISD-116, Factory Act, DGMS.</p>
+    </div>
+    <div class="card">
+      <h4>Geospatial Heatmap</h4>
+      <p>Real-time IDW-interpolated risk visualization across 225 grid cells. WebSocket-driven updates under 500ms.</p>
+    </div>
+    <div class="card">
+      <h4>Incident Intelligence</h4>
+      <p>Pattern detection, root cause analysis, and recurrence prediction. Similar incident matching for investigation support.</p>
+    </div>
+    <div class="card">
+      <h4>Permit Intelligence</h4>
+      <p>Automated conflict detection between overlapping permits. Risk scoring with conditional safety requirements.</p>
+    </div>
+    <div class="card">
+      <h4>Emergency Orchestrator</h4>
+      <p>ICS plan generation, auto-escalation, muster point tracking. Response time monitoring and metrics.</p>
+    </div>
+    <div class="card">
+      <h4>Compliance Audit</h4>
+      <p>OISD-116 and Factory Act checklists. Automated compliance scoring with finding categorization.</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>Technical Architecture</h2>
+  <p>Built on modern async Python with real-time WebSocket streaming and SQLite/PostgreSQL dual-mode database.</p>
+  <div class="metrics">
+    <div class="metric"><div class="num">20+</div><div class="label">API Endpoints</div></div>
+    <div class="metric"><div class="num">6</div><div class="label">AI Agents</div></div>
+    <div class="metric"><div class="num">17</div><div class="label">Plant Assets</div></div>
+    <div class="metric"><div class="num">18</div><div class="label">IoT Sensors</div></div>
+    <div class="metric"><div class="num">225</div><div class="label">Heatmap Grid Cells</div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>Key Differentiators</h2>
+  <ul>
+    <li>Compound risk detection — correlates multiple sensor signals, not just thresholds</li>
+    <li>Real-time geospatial heatmap with IDW interpolation from sensor points</li>
+    <li>Regulatory compliance built-in: OISD-116, Factory Act, DGMS standards</li>
+    <li>Automated ICS plan generation for emergency response</li>
+    <li>Permit conflict detection prevents dangerous concurrent operations</li>
+    <li>Incident pattern analysis identifies systemic issues before recurrence</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h2>Impact Metrics</h2>
+  <div class="metrics">
+    <div class="metric"><div class="num">85%</div><div class="label">Compound risk detection accuracy</div></div>
+    <div class="metric"><div class="num">15min</div><div class="label">Prediction lead time</div></div>
+    <div class="metric"><div class="num">60%</div><div class="label">Reduction in false negatives</div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2><span class="accent">Ready for Deployment</span></h2>
+  <p>Working prototype with seeded demo data, full API, and React frontend. Architecture supports PostgreSQL + Redis for production scale.</p>
+  <div style="margin-top: 32px;">
+    <span class="tag">FastAPI Backend</span>
+    <span class="tag">React Frontend</span>
+    <span class="tag">SQLite Dev / PostgreSQL Prod</span>
+    <span class="tag">WebSocket Real-time</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.env
+venv/
+chroma_db/
+node_modules/
+frontend/dist/
+.DS_Store
+sample_docs/*.pdf
+
+# Demo / temp files
+*.log
+*.pid
+backend_err.log
+err2.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
