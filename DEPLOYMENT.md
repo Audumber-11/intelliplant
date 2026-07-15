@@ -1,207 +1,156 @@
-# IntelliPlant Safety Intelligence Platform - Deployment Complete
+# IntelliPlant — Deployment Guide
 
-## Technology Audit Summary
+## 🚀 Quick Deploy
 
-### ✅ IMPLEMENTED (5/6 Technologies)
+### Frontend ✅ (Already Deployed)
 
-1. **✅ Agentic AI / Multi-Agent Systems** ✓
-   - 9 agent classes: Risk Engine, Geospatial, Incident Intel, Permit Intel, Emergency, Compliance, CCTV, IoT Gateway, Knowledge Graph
-   - Orchestrator agent with LLM reasoning and background monitoring
-   - Message passing between agents for autonomous coordination
-   - 6 specialized intelligence modules working together
+**URL:** https://frontend-9f4hdv98t-audumber-11s-projects.vercel.app  
+**Alias:** https://frontend-eta-five-76.vercel.app  
 
-2. **✅ Computer Vision & CCTV Analytics** ✓
-   - CCTV Analytics Agent with real-time object detection
-   - Simulated PPE violations (hard hats, vests, goggles, safety gloves, ear protection)
-   - Flame/smoke detection with critical severity alerts
-   - Unauthorized access monitoring and crowd gathering detection
-   - Real-time alert processing and escalation
+> ⚠️ Frontend calls backend at `localhost:8000`. To connect live backend, update `frontend/src/api.ts`:
+> ```ts
+> const API_BASE = 'https://intelliplant-api.onrender.com'; // Replace localhost
+> ```
+> Then redeploy: `cd frontend && vercel --prod`
 
-3. **✅ Geospatial Intelligence** ✓
-   - IDW interpolation heatmap engine for risk visualization
-   - GeoJSON plant layout with zone polygons and asset points
-   - Personnel tracking and zone assignment
-   - Real-time risk mapping and alert visualization
-   - WebSocket streaming for live heatmap updates
+---
 
-4. **✅ RAG over Documents** ✓
-   - ChromaDB vector store with document ingestion
-   - Sentence-transformers for embeddings
-   - Claude API for intelligent question answering
-   - Source-cited responses with confidence scoring
-   - Automated document processing and knowledge extraction
+### Step 1: Create GitHub Repository
 
-5. **✅ IoT / SCADA Data Integration** ✓
-   - MQTT client simulation for sensor telemetry
-   - OPC-UA bridge for industrial protocol integration
-   - Real-time data streaming and processing
-   - Error handling and quality monitoring
-   - Batch data ingestion and processing
+1. Go to https://github.com/new
+2. Repository name: `intelliplant`
+3. Description: `AI-Powered Industrial Safety Intelligence Platform`
+4. Visibility: **Public**
+5. **DO NOT** initialize with README, .gitignore, or license
+6. Click **Create repository**
 
-6. **✅ Knowledge Graphs** ✓
-   - NetworkX-based relationship engine
-   - Equipment-permit-risk knowledge mapping
-   - Risk propagation analysis across the graph
-   - Path finding and relationship inference
-   - Graph-based root cause analysis
+### Step 2: Push Code to GitHub
 
-## 🚀 Key Features Implemented
+Run these commands in your terminal:
 
-### Multi-Agent Architecture
-- **9 specialized agents** working in concert
-- **Orchestrator agent** making autonomous decisions
-- **LLM-powered reasoning** for complex safety scenarios
-- **Message queue** for inter-agent communication
-- **Background monitoring loop** for continuous operation
-
-### Advanced Computer Vision
-- **PPE detection**: Hard hats, vests, goggles, gloves, boots
-- **Safety violations**: Automated alert generation
-- **Fire/smoke detection**: Critical severity alerts
-- **Crowd monitoring**: Unauthorized gatherings detection
-- **Real-time processing**: Live stream analysis with FPS tracking
-
-### Industrial IoT Integration
-- **MQTT simulation**: Sensor telemetry streaming
-- **OPC-UA bridge**: Industrial protocol connectivity
-- **Error detection**: Quality checking and anomaly detection
-- **Batch processing**: Large-scale data ingestion
-- **Real-time metrics**: Throughput and latency monitoring
-
-### Intelligent Knowledge Graph
-- **Entity relationships**: Equipment, permits, incidents
-- **Risk propagation**: Across interconnected components
-- **Path finding**: Between related events and assets
-- **Root cause analysis**: Through graph traversal
-- **Automatic inference**: Pattern extraction from text
-
-### Geospatial Intelligence
-- **Spatial analysis**: Risk zone visualization
-- **Heatmap generation**: IDW interpolation method
-- **Asset tracking**: Personnel and equipment locations
-- **Zone-based alerts**: Risk level by geographical area
-- **Muster route planning**: Emergency evacuation coordination
-
-## 📊 System Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    ORCHESTRATOR AGENT                            │
-│        • LLM-powered decision making                             │
-│        • Inter-agent message routing                                │
-│        • Background monitoring loop                                 │
-└─────────────────────────────────────────────────────────────────┘
-                               │
-┌─────────────────────────┼─────────────────────────┐
-│     SPECIALIZED AGENTS │                           │
-│                         │                           │
-│  ┌─────────────────────┼─────────────────────┐   │
-│  │ Risk Engine        │ Incident Intel     │   │
-│  │ Geospatial         │ Permit Intel       │   │
-│  │ Emergency          │ Compliance         │   │
-│  │ CCTV Analytics     │ Knowledge Graph    │   │
-│  │ IoT Gateway        │                    │   │
-│  └─────────────────────┴─────────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
-                               │
-┌─────────────────────────────────────────────────────────────────┐
-│                       SHARED DATA STORE                           │
-│  • PostgreSQL: Core business data                                │
-│  • ChromaDB: Vector embeddings for RAG                          │
-│  • Redis: Real-time caching and metrics                          │
-└─────────────────────────────────────────────────────────────────┘
-
-                    ├─────────────────────────────────────────────────┐
-                    │                 FRONTEND                   │
-                    │  • Dashboard: KPIs and metrics              │
-                    │  • Heatmap: Risk visualization            │
-                    │  • CCTV Monitor: Live footage            │
-                    │  • Incidents: Incident tracking           │
-                    │  • Permits: Permit management             │
-                    │  • Emergency: Response coordination      │
-                    │  • Audit: Compliance reporting           │
-                    └─────────────────────────────────────────────────┘
+```bash
+cd "D:\ET hackthon"
+git remote set-url origin https://github.com/Audumber-11/intelliplant.git
+git push -u origin main
 ```
 
-## 🌐 API Endpoints (20+)
+### Step 3: Deploy Backend to Render (Free Tier)
 
-### Core APIs
-- `/api/dashboard/kpis` - Dashboard key metrics
-- `/api/assets`, `/api/sensors`, `/api/incidents`, `/api/permits`, `/api/risk/current`
-- `/api/heatmap/layout`, `/api/heatmap/live`, `/api/heatmap/zones`, `/api/heatmap/locations`
-- `/api/emergency-analysis/metrics`, `/api/emergency-analysis/muster-plan`
+1. Go to https://dashboard.render.com
+2. Click **New +** → **Web Service**
+3. Connect your GitHub account
+4. Select `Audumber-11/intelliplant`
+5. Configure:
+   - **Name:** `intelliplant-api`
+   - **Runtime:** `Python 3`
+   - **Build Command:** `pip install -r backend/requirements.txt`
+   - **Start Command:** `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
+   - **Plan:** **Free**
+6. Click **Create Web Service**
+7. Wait for deploy (~5 min)
 
-### New Module APIs
-- `/api/cctv/summary` - CCTV system overview
-- `/api/cctv/alerts` - Active alerts with severity filtering
-- `/api/iot/metrics` - IoT gateway and device metrics
-- `/api/iot/devices` - Registered IoT device inventory
-- `/api/knowledge-graph/data` - Complete knowledge graph
-- `/api/knowledge-graph/stats` - Graph statistics and metrics
-- `/api/orchestrator/status` - System orchestrator status
-- `/api/orchestrator/decisions` - Recent orchestrator decisions
+### Step 4: Update Frontend API URL
 
-### Document and Search APIs
-- `/upload`, `/query` - Document upload and RAG queries
-- `/documents` - Document management
-- `/knowledge-graph` - Document/equipment relationships
+1. Edit `frontend/src/api.ts`
+2. Change `http://localhost:8000` → `https://intelliplant-api.onrender.com`
+3. Redeploy frontend:
+   ```bash
+   cd frontend
+   vercel --prod --yes --scope audumber-11s-projects
+   ```
 
-## 📈 Deployment Status
+### Step 5: Verify
 
-### ✅ Fully Implemented
-- **Agentic AI System**: 9 agents with orchestrator
-- **Computer Vision**: PPE + flame detection + access control
-- **IoT Integration**: MQTT + OPC-UA simulation
-- **Knowledge Graph**: NetworkX-based relationship engine
-- **Geospatial**: IDW heatmaps + zone analysis
-- **RAG Pipeline**: ChromaDB + Claude integration
+- **Frontend:** https://frontend-eta-five-76.vercel.app
+- **Backend Health:** https://intelliplant-api.onrender.com/health
+- **API Docs:** https://intelliplant-api.onrender.com/docs
 
-### 🚀 Running Systems
-- **Backend API Server**: All endpoints operational
-- **19 core + 6 new module APIs**: REST endpoints working
-- **Real-time processing**: CCTIFeed processing, IoT streaming
-- **Autonomous monitoring**: Orchestrator running
-- **Data ingestion**: Both batch and streaming active
+---
 
-### 🔧 Architecture
-- **16+ core algorithms** for safety intelligence
-- **ML-powered reasoning** with Claude API integration
-- **Real-time streaming** via WebSockets
-- **Graph-based analytics** for root cause analysis
-- **Multi-protocol support** (MQTT, OPC-UA, REST)
+## 🐳 Docker Deployment
 
-## 🎯 Innovation Highlights
+```bash
+docker-compose up --build
+```
 
-### 1. Autonomous Multi-Agent Coordination
-- First hackathon to implement a true orchestration agent
-- LLM-powered decision making for safety scenarios
-- Background monitoring loop across all modules
-- Real-time inter-agent message passing
+Access:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
 
-### 2. Computer Vision Safety
-- Industry-first PPE violation detection
-- Automated fire/smoke detection with critical alerts
-- Unauthorized access monitoring
-- Real-time alert escalation to emergency response
+---
 
-### 3. Industrial IoT Bridge
-- Protocol-agnostic data ingestion
-- SCADA system integration (MQTT, OPC-UA)
-- Real-time telemetry processing and analysis
-- Quality-aware data handling
+## 🧪 Local Development
 
-### 4. Knowledge Graph Intelligence
-- NetworkX-powered relationship inference
-- Equipment-permit-risk connection mapping
-- Risk propagation analysis across the graph
-- Pattern extraction from regulatory documents
+### Backend
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
+```
 
-## 🚀 Next Steps
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-1. **Frontend Integration**: Complete React frontend with all pages
-2. **Production Deployment**: Kubernetes deployment ready
-3. **Real Sensors**: Physical CCTV + industrial equipment
-4. **Advanced Analytics**: ML model integration
-5. **Mobile App**: On-site inspection and reporting
+---
 
-This is a **production-ready** safety intelligence platform combining AI, Computer Vision, IoT, Geospatial analytics, and Knowledge Graph technologies for **zero-harm operations**.
+## 📊 Verification
+
+Run full API test:
+```bash
+cd backend
+python -m tests.verify
+```
+
+Expected: **18/18 endpoints PASS**
+
+---
+
+## 🌐 Architecture
+
+```
+Frontend (Vercel) ──HTTP──► Backend API (Render)
+                                 │
+                    ┌────────────┼────────────┐
+                    ▼            ▼            ▼
+                 SQLite      ChromaDB     NetworkX
+                 (data)     (vectors)     (graph)
+```
+
+---
+
+## 📁 Project Structure
+
+```
+intelliplant/
+├── backend/         # FastAPI backend with 10 AI agents
+│   ├── agents/      # CCTV, IoT, KG, Orchestrator, etc.
+│   ├── main.py      # 25+ API endpoints
+│   ├── models/      # SQLAlchemy models
+│   └── tests/       # Verification scripts
+├── frontend/        # React/TypeScript SPA
+│   ├── src/pages/   # 10 dashboard pages
+│   └── src/api.ts   # API client
+├── docs/            # PRD, Architecture, API docs
+├── docker-compose.yml
+├── vercel.json
+└── render.yaml
+```
+
+---
+
+## 🔗 Links
+
+| Resource | URL |
+|----------|-----|
+| GitHub Repo | https://github.com/Audumber-11/intelliplant |
+| Live Frontend | https://frontend-eta-five-76.vercel.app |
+| Backend API | https://intelliplant-api.onrender.com |
+| API Docs | https://intelliplant-api.onrender.com/docs |
+| PRD | https://github.com/Audumber-11/intelliplant/blob/main/docs/PRD.md |
