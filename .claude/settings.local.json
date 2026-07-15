@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chcp 65001)",
+      "Bash(python -c \"import fastapi, chromadb, anthropic, fitz, reportlab, sentence_transformers; print\\('All backend packages OK'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"import torch; print\\('All backend PyTorch packages OK'\\)\")"
+    ]
+  }
+}

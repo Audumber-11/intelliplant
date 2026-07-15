@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip uninstall *)",
+      "Bash(./venv/Scripts/python.exe -m pytest test_app.py -v)"
+    ]
+  }
+}
