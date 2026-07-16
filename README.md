@@ -86,12 +86,29 @@ curl http://localhost:8000/health
 python backend/tests/verify.py
 ```
 
-## 🌐 Deployment
+## 🌐 Live Demo
 
-| Service | Component | Status |
-|---------|-----------|--------|
-| **Vercel** | Frontend | `intelliplant.vercel.app` |
-| **Render** | Backend API | `intelliplant-api.onrender.com` |
+| Service | Component | URL |
+|---------|-----------|-----|
+| **Frontend** | React SPA | [https://frontend-eta-five-76.vercel.app](https://frontend-eta-five-76.vercel.app) |
+| **Backend API** | FastAPI (local) | `http://localhost:8000` |
+| **Demo Video** | Full walkthrough | [`screenshots/IntelliPlant_Full_Demo.mp4`](screenshots/IntelliPlant_Full_Demo.mp4) |
+| **Screenshots** | 10 dashboard pages | [`screenshots/`](screenshots/) |
+
+> **Backend Deployment:** To deploy the backend on Render free tier, click:  
+> [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Audumber-11/intelliplant)
+
+### 📸 Screenshots
+
+| Dashboard | Heatmap | Incidents |
+|:---------:|:-------:|:---------:|
+| ![Dashboard](screenshots/01_Dashboard.png?raw=true) | ![Heatmap](screenshots/02_Heatmap.png?raw=true) | ![Incidents](screenshots/03_Incidents.png?raw=true) |
+| **Permits** | **Emergency** | **Audit** |
+| ![Permits](screenshots/04_Permits.png?raw=true) | ![Emergency](screenshots/05_Emergency.png?raw=true) | ![Audit](screenshots/06_Audit.png?raw=true) |
+| **CCTV** | **IoT** | **Knowledge Graph** |
+| ![CCTV](screenshots/07_CCTV.png?raw=true) | ![IoT](screenshots/08_IoT.png?raw=true) | ![KnowledgeGraph](screenshots/09_KnowledgeGraph.png?raw=true) |
+| **Orchestrator** |
+| ![Orchestrator](screenshots/10_Orchestrator.png?raw=true) |
 
 ## 📚 Documentation
 
