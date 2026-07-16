@@ -1,3 +1,8 @@
+blueprint:
+  name: IntelliPlant
+  author: Audumber
+  description: AI-Powered Industrial Safety Intelligence Platform
+
 services:
   - type: web
     name: intelliplant-api
