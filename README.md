@@ -108,7 +108,7 @@ python backend/tests/verify.py
 
 ## 👤 Author
 
-**Audumber **  
+**Audumber**  
 [GitHub](https://github.com/Audumber-11)
 
 ## 📄 License
